@@ -4,8 +4,9 @@ const sequelize = require("./config/connection");
 const path = require("path");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
-const hbs = exphbs.create({});
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const helpers = require("./utils/helpers");
+const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: "Super secret secret",
